@@ -62,7 +62,7 @@ h1 {
   color: var(--black);
   padding-block-start: 0.25rem;
   padding-block-end: 0.25rem;
-  padding-inline-end: 0.75rem
+  padding-inline-end: 0.75rem;
 }
 
 #keys-box {
@@ -85,42 +85,40 @@ h1 {
 }
 
 .enter {
-    grid-column: 4 / 5;
-    grid-row: 3 / span 4;
-    height: 220px;
-    background-color: var(--orange);
+  grid-column: 4 / 5;
+  grid-row: 3 / span 4;
+  height: 220px;
+  background-color: var(--orange);
 }
 
-
-
 .operator {
-    background-color: var(--pink);
-    box-shadow: 5px 5px #c998a1;
-    border: solid 5px #f1b9c3;
+  background-color: var(--pink);
+  box-shadow: 5px 5px #c998a1;
+  border: solid 5px #f1b9c3;
 }
 
 .yellow-keys {
-    background-color: var(--yellow);
-    box-shadow: 5px 5px #aca67e;
-    border: solid 5px #e0dcb2;
+  background-color: var(--yellow);
+  box-shadow: 5px 5px #aca67e;
+  border: solid 5px #e0dcb2;
 }
 
 .green-keys {
-    background-color: var(--green);
-    box-shadow: 5px 5px #89a585;
-    border: solid 5px #bcd8b3;
+  background-color: var(--green);
+  box-shadow: 5px 5px #89a585;
+  border: solid 5px #bcd8b3;
 }
 
 .blue-keys {
-    background-color: var(--blue);
-    box-shadow: 5px 5px #89a8b6;
-    border: solid 5px #b9dcf1;
+  background-color: var(--blue);
+  box-shadow: 5px 5px #89a8b6;
+  border: solid 5px #b9dcf1;
 }
 
 .orange-keys {
-    background-color: var(--orange);
-    box-shadow: 5px 5px #c0835b;
-    border: solid 5px #e79c7e;
+  background-color: var(--orange);
+  box-shadow: 5px 5px #c0835b;
+  border: solid 5px #e79c7e;
 }
 
 p {
