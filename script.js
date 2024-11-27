@@ -1,10 +1,10 @@
 const keys = document.querySelectorAll(".key");
-const doyKey = document.querySelector(".punctuation");
+const dotKey = document.querySelector(".punctuation");
 const output = document.getElementById("output");
 
 // operators keys
-const sumKey = document.querySelector(".sum");
-const minusKey = document.querySelector(".minus");
+const addKey = document.querySelector(".sum");
+const subtractKey = document.querySelector(".minus");
 const multiplyKey = document.querySelector(".multiply");
 const divideKey = document.querySelector(".divide");
 
@@ -13,30 +13,36 @@ const resultKey = document.querySelector(".enter");
 const eraseKey = document.querySelector(".erase");
 const eraseAll = document.querySelector(".erase-all");
 
-let result = 0;
-let num1;
-let num2;
-let operator;
-
-function add(...args) {
-  let sum = [...args].reduce((a, b) => a + b, 0);
-  result = sum;
-  return result;
+function add(...numbers) {
+  return numbers.reduce((a, b) => a + b, 0);
 }
-function subtract(...args) {
-  let minus = args.reduce((a, b) => a - b);
-  result = minus;
-  return result;
+function subtract(...numbers) {
+  return numbers.reduce((a, b) => a - b);
 }
 
-function multiply(...args) {
-  let multiplication = args.reduce((a, b) => a * b);
-  result = multiplication;
-  return result;
+function multiply(...numbers) {
+  return numbers.reduce((a, b) => a * b, 1);
 }
 
-function divide(...args) {
-    let division = args.reduce((a, b) => a / b);
-    result = division;
-    return result;
+function divide(...numbers) {
+    return numbers.reduce((a, b) => {
+        if (b === 0) return 'error D:';
+        return a / b;
+    });
+}
+
+function operate(operator, num1, num2) {
+    switch (operator) {
+        case '+':
+            return add(num1, num2);
+        case '-':
+            return subtract(num1, num2);
+        case '*':
+            return multiply(num1, num2);
+        case '/':
+            if (num2 === 0) return 'Error D:';
+            return divide(num1, num2);
+        default:
+            return 'invalid';
+    }
 }
