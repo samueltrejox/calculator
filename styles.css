@@ -1,1 +1,12 @@
+*, html {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
 
+:root {
+    --dark: #2D2424;
+    --brown: #5C3D2E;
+    --orange: #B85C38;
+    --light: #E0C097;
+}
