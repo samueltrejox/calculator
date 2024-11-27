@@ -37,7 +37,7 @@ h1 {
 }
 
 #calculator {
-  width: 400px;
+  width: 410px;
   height: 600px;
   display: flex;
   justify-content: center;
@@ -82,6 +82,12 @@ h1 {
   block-size: 60px;
   border-radius: 40px;
   color: var(--black);
+  cursor: pointer;
+}
+
+.key:active {
+box-shadow: none;
+transform: translateX(5px) translateY(5px);
 }
 
 .enter {
