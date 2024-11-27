@@ -1,42 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
     <title>Calculator - TOP</title>
-</head>
-<body>
+  </head>
+  <body>
     <h1>CALCULATOR TESTING</h1>
 
-        <div id="calculator">
-            <input type="text" id="output" value="0" readonly>
-                <div id="buttons-box">
-                    <button id="on" class="status">ON</button>
-                <button id="off" class="status">OFF</button>
-                <button id="erase" class="main-btn">C</button>
-                <button id="sum" class="main-btn calc">+</button>
-                <button class="number" id="seven">7</button>
-                <button class="number" id="eight">8</button>
-                <button class="number" id="nine">9</button>
-                <button id="division" class="main-btn calc">%</button>
-                <button class="number" id="four">4</button>
-                <button class="number" id="five">5</button>
-                <button class="number" id="six">6</button>
-                <button id="mult" class="main-btn calc">x</button>
-                <button class="number" id="one">1</button>
-                <button class="number" id="two">2</button>
-                <button class="number" id="three">3</button>
-                <button id="minus" class="main-btn calc">-</button>
-                <button class="number" id="zero">0</button>
-                <button class="number" id="double-zero">00</button>
-                <button id="dot" class="main-btn calc">.</button>
-                <button id="equal" class="main-btn calc">=</button>
-                
-                </div>
-                <p>Foundations - The Odin Project</p>
-        </div>
+    <div id="calculator">
+      <input type="text" id="output" value="0" readonly />
+      <div id="keys-box">
+        <button class="key operator">+</button>
+        <button class="key operator">-</button>
+        <button class="key operator">
+          &times;
+        </button>
+        <button class="key operator">÷</button>
+        <button class="key yellow-keys">7</button>
+        <button class="key yellow-keys">8</button>
+        <button class="key yellow-keys">9</button>
+        <button class="key yellow-keys">AC</button>
+        <button class="key green-keys">4</button>
+        <button class="key green-keys">5</button>
+        <button class="key green-keys">6</button>
+        <button class="key blue-keys">1</button>
+        <button class="key blue-keys">2</button>
+        <button class="key blue-keys">3</button>
+        <button class="key orange-keys">.</button>
+        <button class="key orange-keys">0</button>
+        <button class="key enter orange-keys">=</button>
+        <button class="key erase orange-keys">&crarr;</button>
+      </div>
+      <p>Foundations - The Odin Project</p>
+    </div>
 
     <script src="script.js"></script>
-</body>
+  </body>
 </html>
