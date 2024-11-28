@@ -23,17 +23,18 @@ body {
   align-items: center;
   flex-direction: column;
   height: 100vh;
-  background-color: whitesmoke;
+  background-image: url(/OIP.jpg);
 }
 
 h1 {
   text-align: center;
   color: var(--black);
+  background-color: var(--grey);
   border: 2px solid var(--grey);
   padding: 10px;
   border-radius: 10px;
   margin-bottom: 40px;
-  box-shadow: 5px 5px var(--grey);
+  box-shadow: 5px 5px grey;
 }
 
 #calculator {
