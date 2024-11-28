@@ -2,4 +2,4 @@
 
 Online calculator - THE ODIN PROJECT
 - Foundations 95%
-- Live preview:
+- Live preview: https://samueltrejox.github.io/calculator/
