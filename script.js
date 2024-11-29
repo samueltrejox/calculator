@@ -1,50 +1,85 @@
-const digit = document.querySelectorAll('.digit')
-const operators = document.querySelectorAll('.operator')
+// main element
+const digit = document.querySelectorAll('.digit');
 
-let operator = null;
-let operand1 = null;
-let operand2 = null;
-let currentDisplay = '0';
-let resultDisplay = false;
 
-function getDisplay(value) {
-    if (currentDisplay === 0 || resultDisplay) {
-        currentDisplay = value;
-    } else {
-        currentDisplay += value;
+// erase elements
+const eraseAllBtn = document.getElementById('erase-all');
+const eraseOne = document.getElementById('erase');
+
+// operators and results
+const resultBtn = document.getElementById('enter');
+const operatorsButtons = document.querySelectorAll('.operator');
+
+let currentDisplay = '';
+let operator = '';
+let operand1 = '';
+let operand2 = '';
+
+// event listener for digits
+digit.forEach(key => {
+    key.addEventListener('click', e => {
+        if (operator === '') {
+            operand1 += e.target.innerText;
+            currentDisplay += operand1;
+        } else {
+            operand2 += e.target.innerText;
+            currentDisplay += operand2;
+        }
+        updateDisplay();
+    })
+});
+
+// event listeners for buttons
+resultBtn.addEventListener('click', updateDisplay(operate(operator, operand1, operand2)));
+
+operatorsButtons.forEach((op) => {
+    op.addEventListener('click', e => {
+        if (operator && operand1 && operand2) {
+            operate(operator, operand1, operand2);
+            updateDisplay();
+        }
+        if (e.target.innerText !== '=') {
+            operator = e.target.innerText;
+            currentDisplay = operand1 + operator;
+            updateDisplay();
+        }
+    })
+})
+
+
+function updateDisplay() {
+    const displayElement = document.getElementById('output');
+    displayElement.innerText = currentDisplay;
+    if(currentDisplay.length > 15) {
+        displayElement.innerText = currentDisplay.substring(0, 15);
     }
 }
 
-function add(...numbers) {
-  return numbers.reduce((a, b) => a + b, 0);
+function add(a, b) {
+  return a + b;
 }
-function subtract(...numbers) {
-  return numbers.reduce((a, b) => a - b);
-}
-
-function multiply(...numbers) {
-  return numbers.reduce((a, b) => a * b, 1);
+function subtract(a, b) {
+  return a - b;
 }
 
-function divide(...numbers) {
-    return numbers.reduce((a, b) => {
-        if (b === 0) return 'error D:';
-        return a / b;
-    });
+function multiply(a, b) {
+  return a * b;
 }
 
-function operate(op, x, y) {
-    switch (op) {
+function divide(a, b) {
+    if (b === 0) return 'error D:';
+    return a / b;
+}
+
+function operate(operator, operand1, operand2) {
+    switch (operator) {
         case '+':
-            return add(x, y);
+            return add(operand1, operand2);
         case '-':
-            return subtract(x, y);
+            return subtract(operand1, operand2);
         case '*':
-            return multiply(x, y);
+            return multiply(operand1, operand2);
         case '/':
-            if (y === 0) return 'Error D:';
-            return divide(x, y);
-        default:
-            return 'invalid';
+            return operand2 === 0 ? 'Error D:' : divide(operand1, operand2);
     }
 }
