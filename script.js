@@ -1,16 +1,18 @@
-const keys = document.querySelectorAll('button')
-const output = document.getElementById("#output");
+const digit = document.querySelectorAll('.digit')
+const operators = document.querySelectorAll('.operator')
 
-let operand = null;
-let operator1 = null;
-let operator2 = null;
-let displayValue = '0';
-let result = null;
+let operator = null;
+let operand1 = null;
+let operand2 = null;
+let currentDisplay = '0';
+let resultDisplay = false;
 
-keys.forEach(key => key.addEventListener('click', updateDisplay))
-
-function updateDisplay() {
-
+function getDisplay(value) {
+    if (currentDisplay === 0 || resultDisplay) {
+        currentDisplay = value;
+    } else {
+        currentDisplay += value;
+    }
 }
 
 function add(...numbers) {
