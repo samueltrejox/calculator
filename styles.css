@@ -91,7 +91,7 @@ box-shadow: none;
 transform: translateX(5px) translateY(5px);
 }
 
-.enter {
+#enter {
   grid-column: 4 / 5;
   grid-row: 3 / span 4;
   height: 220px;
