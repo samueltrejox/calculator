@@ -1,17 +1,17 @@
-const keys = document.querySelectorAll(".key");
-const dotKey = document.querySelector(".punctuation");
-const output = document.getElementById("output");
+const keys = document.querySelectorAll('button')
+const output = document.getElementById("#output");
 
-// operators keys
-const addKey = document.querySelector(".sum");
-const subtractKey = document.querySelector(".minus");
-const multiplyKey = document.querySelector(".multiply");
-const divideKey = document.querySelector(".divide");
+let operand = null;
+let operator1 = null;
+let operator2 = null;
+let displayValue = '0';
+let result = null;
 
-// result and erasing keys
-const resultKey = document.querySelector(".enter");
-const eraseKey = document.querySelector(".erase");
-const eraseAll = document.querySelector(".erase-all");
+keys.forEach(key => key.addEventListener('click', updateDisplay))
+
+function updateDisplay() {
+
+}
 
 function add(...numbers) {
   return numbers.reduce((a, b) => a + b, 0);
@@ -31,17 +31,17 @@ function divide(...numbers) {
     });
 }
 
-function operate(operator, num1, num2) {
-    switch (operator) {
+function operate(op, x, y) {
+    switch (op) {
         case '+':
-            return add(num1, num2);
+            return add(x, y);
         case '-':
-            return subtract(num1, num2);
+            return subtract(x, y);
         case '*':
-            return multiply(num1, num2);
+            return multiply(x, y);
         case '/':
-            if (num2 === 0) return 'Error D:';
-            return divide(num1, num2);
+            if (y === 0) return 'Error D:';
+            return divide(x, y);
         default:
             return 'invalid';
     }
