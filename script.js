@@ -3,7 +3,7 @@ const digit = document.querySelectorAll(".digit");
 
 // erase elements
 const eraseAllBtn = document.getElementById("erase-all");
-const eraseOne = document.getElementById("erase");
+const eraseValueBtn = document.getElementById("erase");
 
 // operators and results
 const resultBtn = document.getElementById("enter");
@@ -64,6 +64,9 @@ operatorsButtons.forEach((op) => {
   });
 });
 
+eraseAllBtn.addEventListener('click', eraseAll);
+eraseValueBtn.addEventListener('click', eraseValue);
+
 function updateDisplay() {
   const displayElement = document.getElementById("output");
   displayElement.innerText = currentDisplay;
@@ -73,7 +76,24 @@ function updateDisplay() {
 }
 
 function eraseValue() {
+    let updatedDisplay = currentDisplay.slice(0, -1) || '0';
+    
+    if (operand1 === currentDisplay) {
+        operand1 = updatedDisplay;
+    } else if (operand2 === currentDisplay) {
+        operand2 = updatedDisplay;
+    }
+    
+    currentDisplay = updatedDisplay;
+    updateDisplay();
+}
 
+function eraseAll() {
+    currentDisplay = '0';
+    operand1 = '';
+    operand2 = '';
+    operator = '';
+    updateDisplay();
 }
 
 
