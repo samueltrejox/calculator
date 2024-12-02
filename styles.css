@@ -87,8 +87,8 @@ h1 {
 }
 
 .key:active {
-box-shadow: none;
-transform: translateX(5px) translateY(5px);
+  box-shadow: none;
+  transform: translateX(5px) translateY(5px);
 }
 
 #enter {

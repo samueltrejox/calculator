@@ -4,7 +4,7 @@ const digit = document.querySelectorAll(".digit");
 // erase elements and decimal element
 const eraseAllBtn = document.getElementById("erase-all");
 const eraseValueBtn = document.getElementById("erase");
-const decimalBtn = document.getElementById('decimal')
+const decimalBtn = document.getElementById("decimal");
 
 // operators and results
 const resultBtn = document.getElementById("enter");
@@ -65,9 +65,9 @@ operatorsButtons.forEach((op) => {
   });
 });
 
-eraseAllBtn.addEventListener('click', eraseAll);
-eraseValueBtn.addEventListener('click', eraseValue);
-decimalBtn.addEventListener('click', convertDecimal)
+eraseAllBtn.addEventListener("click", eraseAll);
+eraseValueBtn.addEventListener("click", eraseValue);
+decimalBtn.addEventListener("click", convertDecimal);
 
 function updateDisplay() {
   const displayElement = document.getElementById("output");
@@ -78,35 +78,35 @@ function updateDisplay() {
 }
 
 function eraseValue() {
-    let updatedDisplay = currentDisplay.slice(0, -1) || '0';
-    
-    if (operand1 === currentDisplay) {
-        operand1 = updatedDisplay;
-    } else if (operand2 === currentDisplay) {
-        operand2 = updatedDisplay;
-    }
-    
-    currentDisplay = updatedDisplay;
-    updateDisplay();
+  let updatedDisplay = currentDisplay.slice(0, -1) || "0";
+
+  if (operand1 === currentDisplay) {
+    operand1 = updatedDisplay;
+  } else if (operand2 === currentDisplay) {
+    operand2 = updatedDisplay;
+  }
+
+  currentDisplay = updatedDisplay;
+  updateDisplay();
 }
 
 function eraseAll() {
-    currentDisplay = '0';
-    operand1 = '';
-    operand2 = '';
-    operator = '';
-    updateDisplay();
+  currentDisplay = "0";
+  operand1 = "";
+  operand2 = "";
+  operator = "";
+  updateDisplay();
 }
 
 function convertDecimal() {
-    if (currentDisplay.includes('.')) return;
-    if (operand1 === currentDisplay) {
-        operand1 += '.';
-    } else if (operand2 === currentDisplay) {
-        operand2 += '.';
-    }
-    currentDisplay += '.';
-    updateDisplay();
+  if (currentDisplay.includes(".")) return;
+  if (operand1 === currentDisplay) {
+    operand1 += ".";
+  } else if (operand2 === currentDisplay) {
+    operand2 += ".";
+  }
+  currentDisplay += ".";
+  updateDisplay();
 }
 
 function operate(operator, operand1, operand2) {
