@@ -1,9 +1,10 @@
 // main element
 const digit = document.querySelectorAll(".digit");
 
-// erase elements
+// erase elements and decimal element
 const eraseAllBtn = document.getElementById("erase-all");
 const eraseValueBtn = document.getElementById("erase");
+const decimalBtn = document.getElementById('decimal')
 
 // operators and results
 const resultBtn = document.getElementById("enter");
@@ -39,7 +40,7 @@ resultBtn.addEventListener("click", () => {
   if (!operand1 || !operand2 || !operator) {
     return;
   } else if (operand1 && operand2) {
-    total = operate(operator, parseInt(operand1), parseInt(operand2));
+    total = operate(operator, parseFloat(operand1), parseFloat(operand2));
     currentDisplay = total;
     updateDisplay();
     operand1 = total;
@@ -53,7 +54,7 @@ operatorsButtons.forEach((op) => {
     if (!operand1 || operatorPressed) return;
     operatorPressed = true;
     if (operand2) {
-      total = operate(operator, parseInt(operand1), parseInt(operand2));
+      total = operate(operator, parseFloat(operand1), parseFloat(operand2));
       currentDisplay = total;
       operand1 = total;
       operand2 = "";
@@ -66,6 +67,7 @@ operatorsButtons.forEach((op) => {
 
 eraseAllBtn.addEventListener('click', eraseAll);
 eraseValueBtn.addEventListener('click', eraseValue);
+decimalBtn.addEventListener('click', convertDecimal)
 
 function updateDisplay() {
   const displayElement = document.getElementById("output");
@@ -96,6 +98,16 @@ function eraseAll() {
     updateDisplay();
 }
 
+function convertDecimal() {
+    if (currentDisplay.includes('.')) return;
+    if (operand1 === currentDisplay) {
+        operand1 += '.';
+    } else if (operand2 === currentDisplay) {
+        operand2 += '.';
+    }
+    currentDisplay += '.';
+    updateDisplay();
+}
 
 function operate(operator, operand1, operand2) {
   switch (operator) {
