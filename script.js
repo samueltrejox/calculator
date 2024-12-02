@@ -1,7 +1,6 @@
 // main element
 const digit = document.querySelectorAll('.digit');
 
-
 // erase elements
 const eraseAllBtn = document.getElementById('erase-all');
 const eraseOne = document.getElementById('erase');
@@ -10,17 +9,18 @@ const eraseOne = document.getElementById('erase');
 const resultBtn = document.getElementById('enter');
 const operatorsButtons = document.querySelectorAll('.operator');
 
-let currentDisplay = '';
+let currentDisplay = '0';
 let operator = '';
 let operand1 = '';
 let operand2 = '';
+let total;
 
 // event listener for digits
 digit.forEach(key => {
     key.addEventListener('click', e => {
         if (operator === '') {
             operand1 += e.target.innerText;
-            currentDisplay += operand1;
+            currentDisplay = operand1;
         } else {
             operand2 += e.target.innerText;
             currentDisplay += operand2;
@@ -30,22 +30,31 @@ digit.forEach(key => {
 });
 
 // event listeners for buttons
-resultBtn.addEventListener('click', updateDisplay(operate(operator, operand1, operand2)));
+resultBtn.addEventListener('click', () => {
+    if (operand1 && operand2) {
+        total = operate(operator, Number(operand1), Number(operand2));
+        currentDisplay = total;
+        updateDisplay();
+        operand1 = total;
+        operand2 = '';
+    }
+});
 
 operatorsButtons.forEach((op) => {
     op.addEventListener('click', e => {
-        if (operator && operand1 && operand2) {
-            operate(operator, operand1, operand2);
-            updateDisplay();
-        }
-        if (e.target.innerText !== '=') {
-            operator = e.target.innerText;
-            currentDisplay = operand1 + operator;
-            updateDisplay();
-        }
-    })
-})
+        if (!operand1) return; // Ensure operand1 exists before proceeding
 
+        if (operand2) {
+            total = operate(operator, Number(operand1), Number(operand2));
+            currentDisplay = total;
+            operand1 = total;
+            operand2 = '';
+        }
+        
+        operator = e.target.innerText;
+        currentDisplay += operator;
+    });
+});
 
 function updateDisplay() {
     const displayElement = document.getElementById('output');
@@ -77,9 +86,9 @@ function operate(operator, operand1, operand2) {
             return add(operand1, operand2);
         case '-':
             return subtract(operand1, operand2);
-        case '*':
+        case '&times;':
             return multiply(operand1, operand2);
-        case '/':
+        case '÷':
             return operand2 === 0 ? 'Error D:' : divide(operand1, operand2);
     }
 }
