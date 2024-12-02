@@ -1,5 +1,6 @@
 // main element
 const digit = document.querySelectorAll(".digit");
+const allKeys = document.querySelectorAll('button');
 
 // erase elements and decimal element
 const eraseAllBtn = document.getElementById("erase-all");
@@ -21,6 +22,32 @@ const subtract = (a, b) => a - b;
 const multiply = (a, b) => a * b;
 const divide = (a, b) => a / b;
 
+// keyboard support
+window.addEventListener('keydown', (e) => {
+    if (e.key >= '0' && e.key <= '9') {
+        if (operator === "") {
+            operand1 += e.key;
+            currentDisplay = operand1;
+        } else {
+            operand2 += e.key;
+            currentDisplay = operand2;
+        }
+        updateDisplay();
+    }  else if (['+', '-', '*', '/'].includes(e.key)) {
+        operator = e.key;
+    } else if (e.key === 'Backspace') {
+        eraseValue();
+    } else if (e.key === 'Delete') {
+        eraseAll();
+    } else if (e.key === '.') {
+        convertDecimal();
+    } else if (e.key === 'Enter') {
+        getResult()
+    }
+});
+
+
+
 // event listener for digits
 digit.forEach((key) => {
   key.addEventListener("click", (e) => {
@@ -36,18 +63,6 @@ digit.forEach((key) => {
 });
 
 // event listeners for buttons
-resultBtn.addEventListener("click", () => {
-  if (!operand1 || !operand2 || !operator) {
-    return;
-  } else if (operand1 && operand2) {
-    total = operate(operator, parseFloat(operand1), parseFloat(operand2));
-    currentDisplay = total;
-    updateDisplay();
-    operand1 = total;
-    operand2 = "";
-  }
-});
-
 operatorsButtons.forEach((op) => {
   op.addEventListener("click", (e) => {
     let operatorPressed = false;
@@ -65,6 +80,11 @@ operatorsButtons.forEach((op) => {
   });
 });
 
+allKeys.forEach(key => {
+    key.addEventListener('click', pressAnimation)
+});
+
+resultBtn.addEventListener("click", getResult);
 eraseAllBtn.addEventListener("click", eraseAll);
 eraseValueBtn.addEventListener("click", eraseValue);
 decimalBtn.addEventListener("click", convertDecimal);
@@ -75,6 +95,18 @@ function updateDisplay() {
   if (currentDisplay.length > 15) {
     displayElement.innerText = currentDisplay.substring(0, 15);
   }
+}
+
+function getResult() {
+    if (!operand1 || !operand2 || !operator) {
+        return;
+      } else if (operand1 && operand2) {
+        total = operate(operator, parseFloat(operand1), parseFloat(operand2));
+        currentDisplay = total;
+        updateDisplay();
+        operand1 = total;
+        operand2 = "";
+      }
 }
 
 function eraseValue() {
@@ -121,3 +153,10 @@ function operate(operator, operand1, operand2) {
       return operand2 === 0 ? "Error D:" : divide(operand1, operand2);
   }
 }
+
+function pressAnimation(e) {
+        e.target.classList.add('active');
+        setTimeout(() => {
+            e.target.classList.remove('active');
+        }, 100);
+    }

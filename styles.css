@@ -86,10 +86,6 @@ h1 {
   cursor: pointer;
 }
 
-.key:active {
-  box-shadow: none;
-  transform: translateX(5px) translateY(5px);
-}
 
 #enter {
   grid-column: 4 / 5;
@@ -133,4 +129,9 @@ p {
   padding-top: 15px;
   color: #ba9fd8;
   font-size: 1.1em;
+}
+
+.active {
+  box-shadow: none;
+  transform: translate(5px, 5px);
 }
