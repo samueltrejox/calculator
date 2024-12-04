@@ -6,8 +6,30 @@
     <link rel="stylesheet" href="styles.css" />
     <title>Calculator - TOP</title>
   </head>
+
   <body>
-    <h1>CALCULATOR TESTING</h1>
+<section>
+
+  <div id="text-box">
+  <h1>CALCULATOR TESTING</h1>
+  <aside id="controls-menu">
+      <h2>Operators</h2>
+      <ul>
+          <li>+ → Add</li>
+          <li>- → Subtract</li>
+          <li>&times; → Multiply</li>
+          <li>&divide; → Divide</li>
+      </ul>
+      <br>
+      <h2>Extras</h2>
+      <ul>
+          <li>Enter → Calculate</li>
+          <li>Backspace → Delete last input</li>
+          <li>Delete → Clear all</li>
+          <li>. → Decimal</li>
+      </ul>
+  </aside>
+  </div>
 
     <div id="calculator">
       <div id="output">0</div>
@@ -15,7 +37,7 @@
         <button class="key operator" id="add">+</button>
         <button class="key operator" id="subtract">-</button>
         <button class="key operator" id="multiply">&times;</button>
-        <button class="key operator" id="divide">÷</button>
+        <button class="key operator" id="divide">&divide;</button>
         <button class="key yellow-keys digit">7</button>
         <button class="key yellow-keys digit">8</button>
         <button class="key yellow-keys digit">9</button>
@@ -33,7 +55,8 @@
       </div>
       <p>Foundations - The Odin Project</p>
     </div>
+</section>
 
-    <script src="script.js"></script>
+<script src="script.js"></script>
   </body>
 </html>
