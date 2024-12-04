@@ -86,7 +86,6 @@ h1 {
   cursor: pointer;
 }
 
-
 #enter {
   grid-column: 4 / 5;
   grid-row: 3 / span 4;
@@ -163,9 +162,9 @@ section {
 }
 
 ul {
- list-style: none;
- padding: 10px;
- margin: 5px;
- background-color: var(--grey);
- color: var(--black);
+  list-style: none;
+  padding: 10px;
+  margin: 5px;
+  background-color: var(--grey);
+  color: var(--black);
 }

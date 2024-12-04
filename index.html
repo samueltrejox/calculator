@@ -8,55 +8,66 @@
   </head>
 
   <body>
-<section>
-
-  <div id="text-box">
-  <h1>CALCULATOR TESTING</h1>
-  <aside id="controls-menu">
-      <h2>Operators</h2>
-      <ul>
-          <li>+ → Add</li>
-          <li>- → Subtract</li>
-          <li>&times; → Multiply</li>
-          <li>&divide; → Divide</li>
-      </ul>
-      <br>
-      <h2>Extras</h2>
-      <ul>
-          <li>Enter → Calculate</li>
-          <li>Backspace → Delete last input</li>
-          <li>Delete → Clear all</li>
-          <li>. → Decimal</li>
-      </ul>
-  </aside>
-  </div>
-
-    <div id="calculator">
-      <div id="output">0</div>
-      <div id="keys-box">
-        <button class="key operator" id="add">+</button>
-        <button class="key operator" id="subtract">-</button>
-        <button class="key operator" id="multiply">&times;</button>
-        <button class="key operator" id="divide">&divide;</button>
-        <button class="key yellow-keys digit">7</button>
-        <button class="key yellow-keys digit">8</button>
-        <button class="key yellow-keys digit">9</button>
-        <button class="key yellow-keys" id="erase-all">AC</button>
-        <button class="key green-keys digit">4</button>
-        <button class="key green-keys digit">5</button>
-        <button class="key green-keys digit">6</button>
-        <button class="key blue-keys digit">1</button>
-        <button class="key blue-keys digit">2</button>
-        <button class="key blue-keys digit">3</button>
-        <button class="key orange-keys" id="decimal">.</button>
-        <button class="key orange-keys digit">0</button>
-        <button class="key orange-keys" id="enter">=</button>
-        <button class="key orange-keys" id="erase">&crarr;</button>
+    <section>
+      <div id="text-box">
+        <h1>CALCULATOR TESTING</h1>
+        <aside id="controls-menu">
+          <h2>Operators</h2>
+          <ul>
+            <li>+ → Add</li>
+            <li>- → Subtract</li>
+            <li>* → Multiply</li>
+            <li>/ → Divide</li>
+          </ul>
+          <br />
+          <h2>Extras</h2>
+          <ul>
+            <li>Enter → Calculate</li>
+            <li>Backspace → Delete last input</li>
+            <li>Delete/Supr → Clear all</li>
+            <li>. → Decimal</li>
+          </ul>
+        </aside>
       </div>
-      <p>Foundations - The Odin Project</p>
-    </div>
-</section>
 
-<script src="script.js"></script>
+      <div id="calculator">
+        <div id="output">0</div>
+        <div id="keys-box">
+          <button data-key="+" class="key operator" id="add" value="+">
+            +
+          </button>
+          <button data-key="-" class="key operator" id="subtract" value="-">
+            -
+          </button>
+          <button data-key="*" class="key operator" id="multiply" value="*">
+            &times;
+          </button>
+          <button data-key="/" class="key operator" id="divide" value="/">
+            &divide;
+          </button>
+          <button data-key="7" class="key yellow-keys digit">7</button>
+          <button data-key="8" class="key yellow-keys digit">8</button>
+          <button data-key="9" class="key yellow-keys digit">9</button>
+          <button data-key="Delete" class="key yellow-keys" id="erase-all">
+            AC
+          </button>
+          <button data-key="4" class="key green-keys digit">4</button>
+          <button data-key="5" class="key green-keys digit">5</button>
+          <button data-key="6" class="key green-keys digit">6</button>
+          <button data-key="1" class="key blue-keys digit">1</button>
+          <button data-key="2" class="key blue-keys digit">2</button>
+          <button data-key="3" class="key blue-keys digit">3</button>
+          <button data-key="." class="key orange-keys" id="decimal">.</button>
+          <button data-key="0" class="key orange-keys digit">0</button>
+          <button data-key="Enter" class="key orange-keys" id="enter">=</button>
+          <button data-key="Backspace" class="key orange-keys" id="erase">
+            &crarr;
+          </button>
+        </div>
+        <p>Foundations - The Odin Project</p>
+      </div>
+    </section>
+
+    <script src="script.js"></script>
   </body>
 </html>
